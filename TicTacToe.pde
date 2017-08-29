@@ -1,6 +1,6 @@
 
 int Wsize = 600;
-int Hsize = 600;
+int Hsize = Wsize;
 int borderSize = int(.1 * float(Wsize));
 int cellSize = int(.8 * float(Wsize) / 3);
 PShape X;
@@ -13,8 +13,8 @@ char winner = '?';
 void setup(){
   background(0);
   surface.setSize(Wsize, Hsize);
-  X = makeX(120);
-  O = makeO(100);
+  X = makeX(Wsize / 5);
+  O = makeO(Wsize / 6);
   print(cellSize, "  ");
   println(borderSize, "  ", 1.5 * cellSize + borderSize);
   println(borderSize + .5 * cellSize);
@@ -69,10 +69,6 @@ void firstPlayer(){
 void play(PShape S, int cell){
   shape(S, cellX(cell), cellY(cell));
 }
-
-//void playY(int cell){
-//  shape(Y, cellX(cell), cellY(cell));
-//}
 
 void drawBoard(){
   background(0);
