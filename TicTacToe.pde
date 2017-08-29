@@ -1,5 +1,4 @@
-
-int Wsize = 600;
+int Wsize = 800;
 int Hsize = Wsize;
 int borderSize = int(.1 * float(Wsize));
 int cellSize = int(.8 * float(Wsize) / 3);
@@ -20,7 +19,6 @@ void setup(){
   println(borderSize + .5 * cellSize);
   println(cellX(0), " ", cellX(4), " ", cellX(8));
   print(cellY(0), " ", cellY(4), " ", cellY(8));
- 
 }
 
 void draw(){
@@ -54,16 +52,17 @@ int cellY(int c){
 }
 
 void firstPlayer(){
+  background(0);
   stroke(255);
   line(Wsize / 2, borderSize, Wsize / 2, Hsize -  borderSize);
   stroke(0,255,0);
-  shape(X, Wsize / 3, Hsize / 2);
+  shape(X, Wsize / 4, Hsize / 2);
   stroke(255, 255, 0);
-  shape(O, 2 * Wsize / 3, Hsize / 2);
+  shape(O, 3 * Wsize / 4, Hsize / 2);
   textAlign(CENTER, BOTTOM);
   fill(0,255,0);
-  text("Select first player", Wsize/2, borderSize/2);
-  
+  textSize(18);
+  text("Select first player", Wsize/2, 3 * borderSize / 4);
   }
 
 void play(PShape S, int cell){
@@ -88,7 +87,7 @@ void drawBoard(){
   line(xR, yT, xR, yB);  //Right Line
   textAlign(CENTER, BOTTOM);
   fill(0,255,0);
-  text(player + "'s Turn", Wsize/2, borderSize/2);
+  text(player + "'s Turn", Wsize/2, 3 * borderSize/4);
 }
 
 PShape makeX(int xW){
@@ -155,9 +154,9 @@ void mouseClicked(){
         //rect(Wsize/2-50, 0, 100, borderSize);
         textAlign(CENTER, BOTTOM);
         fill(0,0,0);
-        text("X's Turn", Wsize/2, borderSize/2);
+        text("X's Turn", Wsize/2, 3 * borderSize/4);
         fill(0,255,0);
-        text("O's Turn", Wsize/2, borderSize/2);
+        text("O's Turn", Wsize/2, 3 * borderSize/4);
         if(winner == '?')
           checkWin();
         player = 'O';
@@ -171,9 +170,9 @@ void mouseClicked(){
         //rect(Wsize/2-50, 0, 100, borderSize);
         textAlign(CENTER, BOTTOM);
         fill(0,0,0);
-        text("O's Turn", Wsize/2, borderSize/2);
+        text("O's Turn", Wsize/2, 3 * borderSize/4);
         fill(0,255,0);
-        text("X's Turn", Wsize/2, borderSize/2);
+        text("X's Turn", Wsize/2, 3 * borderSize/4);
         if(winner == '?')
           checkWin();
         player = 'X';
